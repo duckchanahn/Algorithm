@@ -1,5 +1,6 @@
-import java.util.*;
 import java.io.*;
+import java.util.Stack;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -7,45 +8,48 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         
         int n = Integer.parseInt(br.readLine());
-        int[] sequence = new int[n];
         
-        // 입력받은 수열 저장
+        // 입력받은 수열을 저장할 배열
+        int[] sequence = new int[n];
         for (int i = 0; i < n; i++) {
             sequence[i] = Integer.parseInt(br.readLine());
         }
         
         Stack<Integer> stack = new Stack<>();
-        ArrayList<String> operations = new ArrayList<>();
+        ArrayList<Character> operations = new ArrayList<>();
         
         int num = 1; // 스택에 넣을 다음 숫자
-        boolean possible = true;
+        boolean isPossible = true;
         
         for (int i = 0; i < n; i++) {
             int target = sequence[i];
             
-            // 현재 찾아야 하는 수가 스택에 넣을 수보다 크거나 같으면
+            // 목표 숫자가 현재 넣을 숫자보다 크거나 같으면
             while (num <= target) {
                 stack.push(num++);
-                operations.add("+");
+                operations.add('+');
             }
             
-            // 스택의 top이 찾는 수와 같으면 pop
+            // 스택의 top이 목표 숫자와 같은지 확인
             if (!stack.isEmpty() && stack.peek() == target) {
                 stack.pop();
-                operations.add("-");
+                operations.add('-');
             } else {
-                possible = false;
+                isPossible = false;
                 break;
             }
         }
         
         // 결과 출력
-        if (possible) {
-            for (String op : operations) {
-                System.out.println(op);
+        if (isPossible) {
+            for (char op : operations) {
+                sb.append(op).append('\n');
             }
         } else {
-            System.out.println("NO");
+            sb.append("NO");
         }
+        
+        System.out.print(sb);
+        br.close();
     }
 }
