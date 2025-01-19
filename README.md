@@ -18,6 +18,7 @@
 | ----- | ----- |
 |10773. 제로|[링크](./%EB%B0%B1%EC%A4%80/Silver/10773.%E2%80%85%EC%A0%9C%EB%A1%9C/README.md)|
 |10828. 스택|[링크](./%EB%B0%B1%EC%A4%80/Silver/10828.%E2%80%85%EC%8A%A4%ED%83%9D/%EC%8A%A4%ED%83%9D.java)|
+|10845. 큐|[링크](./%EB%B0%B1%EC%A4%80/Silver/10845.%E2%80%85%ED%81%90/README.md)|
 |1158. 요세푸스 문제|[링크](./%EB%B0%B1%EC%A4%80/Silver/1158.%E2%80%85%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%E2%80%85%EB%AC%B8%EC%A0%9C/README.md)|
 |1406. 에디터|[링크](./%EB%B0%B1%EC%A4%80/Silver/1406.%E2%80%85%EC%97%90%EB%94%94%ED%84%B0/README.md)|
 |1475. 방 번호|[링크](./%EB%B0%B1%EC%A4%80/Silver/1475.%E2%80%85%EB%B0%A9%E2%80%85%EB%B2%88%ED%98%B8/README.md)|
