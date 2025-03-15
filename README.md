@@ -13,6 +13,7 @@
 |13300. 방 배정|[링크](./%EB%B0%B1%EC%A4%80/Bronze/13300.%E2%80%85%EB%B0%A9%E2%80%85%EB%B0%B0%EC%A0%95/%EB%B0%A9%E2%80%85%EB%B0%B0%EC%A0%95.java)|
 |1919. 애너그램 만들기|[링크](./%EB%B0%B1%EC%A4%80/Bronze/1919.%E2%80%85%EC%95%A0%EB%84%88%EA%B7%B8%EB%9E%A8%E2%80%85%EB%A7%8C%EB%93%A4%EA%B8%B0/README.md)|
 |2577. 숫자의 개수|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2577.%E2%80%85%EC%88%AB%EC%9E%90%EC%9D%98%E2%80%85%EA%B0%9C%EC%88%98/README.md)|
+|28702. FizzBuzz|[링크](./%EB%B0%B1%EC%A4%80/Bronze/28702.%E2%80%85FizzBuzz/README.md)|
 ### 🚀 Gold
 | 문제번호 | 링크 |
 | ----- | ----- |
