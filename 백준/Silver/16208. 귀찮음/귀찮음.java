@@ -7,15 +7,15 @@ public class Main {
         int size = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
         
-        Queue<Integer> q = new ArrayDeque<>();
+        Queue<Long> q = new ArrayDeque<>();
         for(int i = 0; i < size; i++) {
-            q.add(Integer.parseInt(st.nextToken()));
+            q.add(Long.parseLong(st.nextToken()));
         }
         
-        int answer = 0;
+        long answer = 0;
         while(q.size() > 1) {
-            int fir = q.poll();
-            int sec = q.poll();
+            long fir = q.poll();
+            long sec = q.poll();
             q.add(fir + sec);
             answer += (fir * sec);
         }
