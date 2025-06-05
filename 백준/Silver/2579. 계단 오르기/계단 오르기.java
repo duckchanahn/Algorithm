@@ -1,28 +1,43 @@
-import java.util.*;
 import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        
-        int[] stairs = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            stairs[i] = Integer.parseInt(br.readLine());
+        int size = Integer.parseInt(br.readLine());
+
+        int[] map = new int[size + 1];
+        int[] sum = new int[size + 1];
+
+        for(int i = 1; i <= size; i++) {
+            map[i] = Integer.parseInt(br.readLine());
         }
         
-        int[][] dp = new int[n + 1][3];
-        
-        if (n >= 1) {
-            dp[1][1] = stairs[1];
+        if(size == 0) {
+            System.out.println(0);
+            return;
         }
-        
-        for (int i = 2; i <= n; i++) {
-            dp[i][1] = Math.max(dp[i-2][1], dp[i-2][2]) + stairs[i];
-            
-            dp[i][2] = dp[i-1][1] + stairs[i];
+
+        if(size == 1) {
+            System.out.println(map[1]);
+            return;
         }
-        
-        System.out.println(Math.max(dp[n][1], dp[n][2]));
+
+        if(size == 2) {
+            System.out.println(map[1] + map[2]);
+            return;
+        }
+
+        sum[1] = map[1];
+        sum[2] = map[1] + map[2];
+        sum[3] = Math.max(map[1] + map[3], map[2] + map[3]);
+
+        for(int i = 4; i <= size; i++) {
+            sum[i] = Math.max(
+                    sum[i-2] + map[i],
+                    sum[i-3] + map[i-1] + map[i]
+            );
+        }
+
+        System.out.println(sum[size]);
     }
 }
