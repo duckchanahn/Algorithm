@@ -1,38 +1,38 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int K = sc.nextInt();
 
-        int MAX = 100001;
-        Deque<int[]> dq = new ArrayDeque<>();
-        int[] dist = new int[MAX];
-        Arrays.fill(dist, -1);
-
-        dq.offer(new int[]{N, 0});
-        dist[N] = 0;
-
-        while (!dq.isEmpty()) {
-            int[] cur = dq.poll();
-            int pos = cur[0];
-            int time = cur[1];
-
-            if (pos == K) {
-                System.out.println(time);
+        if(N == K) {
+            System.out.println(0);
+            return;
+        }
+        
+        Deque<int[]> q = new ArrayDeque<>();
+        boolean[] visited = new boolean[100_001];
+        q.add(new int[] {N, 0});
+        visited[N] = true;
+        while(!q.isEmpty()) {
+            int[] now = q.poll();
+            if(now[0] == K) {
+                System.out.println(now[1]);
                 return;
             }
 
-            if (pos * 2 < MAX && dist[pos * 2] == -1) {
-                dist[pos * 2] = time;
-                dq.offerFirst(new int[]{pos * 2, time});
+            if(now[0] * 2 <= 100_000 && !visited[now[0] * 2]) {
+                visited[now[0] * 2] = true;
+                q.offerFirst(new int[] {now[0] * 2, now[1]});
             }
 
-            for (int next : new int[]{pos - 1, pos + 1}) {
-                if (next >= 0 && next < MAX && dist[next] == -1) {
-                    dist[next] = time + 1;
-                    dq.offerLast(new int[]{next, time + 1});
+            int[] next = new int[] {now[0] - 1, now[0] + 1};
+            for(int i : next) {
+                if(0 <= i && i <= 100_000 && !visited[i]) {
+                    visited[i] = true;
+                    q.offerLast(new int[] {i, now[1] + 1});
                 }
             }
         }
